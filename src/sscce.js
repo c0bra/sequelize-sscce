@@ -24,7 +24,14 @@ module.exports = async function() {
     }
   });
 
-  const Foo = sequelize.define('Foo', { name: DataTypes.TEXT });
+  const Lead = sequelize.define('Lead', {
+    id: {
+      allowNull: false,
+      primaryKey: true,
+      autoIncrement: true,
+      type: Sequelize.INTEGER,
+    },
+  });
 
   const spy = sinon.spy();
   sequelize.afterBulkSync(() => spy());
